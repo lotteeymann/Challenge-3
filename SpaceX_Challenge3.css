@@ -1,0 +1,43 @@
+html{
+	background: url(Achtergrond.jpeg) no-repeat center center fixed;
+	background-size: cover;
+	/*afbeelding als achtergrond gebruiken. Instellen dat 'ie in het midden staat, zichzelf niet herhaald en geschaald wordt over de hele achtergrond.*/
+}
+
+.Title{
+	margin: 10px;
+	padding: 10px;
+	/*ruimte rondom logo voor overzicht in design*/
+}
+
+img{
+	width: 200px;
+	margin: 20px;
+	/*Grootte van SpaceX logo bepalen*/
+	transition-duration: 3s;
+}
+
+
+
+
+
+
+/*Tablet*/
+@media only screen and (min-width: 800px){
+
+}
+
+
+/*Desktop klein*/
+@media only screen and (min-width: 1000px){
+
+}
+
+
+/*Desktop groot*/
+@media only screen and (min-width: 1200px){
+	img{
+		width: 300px;
+		margin: 20px;
+	}
+}
