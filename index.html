@@ -6,6 +6,10 @@
 	<title>Interplanetary Transport System Interface</title>
 	<link rel="stylesheet" type="text/css" href="SpaceX_Challenge3.css">
 	<script type="text/javascript" src="SpaceX_Challenge3.js" defer></script>
+
+	<link href="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.4.0.css" rel="stylesheet">
+	<script src="https://maps-sdk.trimblemaps.com/v3/trimblemaps-3.4.0.js"></script>
+
 </head>
 <body>
 	<header>
@@ -13,5 +17,33 @@
 			<img src="SpaceXLOGO.png">
 		</div>
 	</header>
+	<div class="temperatuur1">
+		<p class="Kopje1">Temperature on Earth</p>
+		<h1 id="weer"> 00 &#730;C </h1>
+	</div>
+	<div class="temperatuur2">
+		<p class="Kopje1">Temperature on Mars</p>
+		<h1 id="weerMars"> 00 &#730;C </h1>
+	</div>
+	<div class="area">
+		<h1 id="areacode"> Area </h1>
+	</div>
+	
+	<div id="myMap" style="height: 600px; width: 800px;"></div>
+
+	<script>
+  		TrimbleMaps.APIKey = "C6CsMFUuMfdNgrRxoWKEfr6sMgzsvGYrDPkXCtvI";
+
+  		var myMap = new TrimbleMaps.Map({
+    	container: "myMap",
+    	center: new TrimbleMaps.LngLat(-96, 35),
+    	zoom: 3
+  		});
+
+		myMap.on('load', function() {
+  		//customize your map once loaded
+		});
+	</script>
+
 </body>
 </html>

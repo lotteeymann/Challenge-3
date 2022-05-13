@@ -17,10 +17,37 @@ img{
 	transition-duration: 3s;
 }
 
+h1{
+	font-family: arial black;
+	font-size: 30px;
+	color: rgb(255, 255, 255);
+	transition-duration: 3sec;
+}
 
+.Kopje1{
+	font-family: arial black;
+	font-size: 20px;
+	color: rgb(255, 255, 255);
+	transition-duration: 3sec;
+}
 
+.temperatuur1, .temperatuur2{
+	background-color: rgb(255, 255, 255, 0.4);
+	border-style: none;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	width: 200px;
+}
 
-
+.area{
+	background-color: rgb(255, 255, 255, 0.4);
+	border-style: none;
+	border-radius: 5px;
+	padding: 10px;
+	margin: 10px;
+	width: auto;
+}
 
 /*Tablet*/
 @media only screen and (min-width: 800px){
