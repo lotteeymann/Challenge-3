@@ -1,4 +1,48 @@
-// OpenWeather
+
+//Mapbox first API
+// Set api token
+mapboxgl.accessToken = 'pk.eyJ1IjoibG90dGVleW1hbm4iLCJhIjoiY2wzNG5tdmRiMDJxdjNjcXI2OWEzNHlzcyJ9._xGhbAcD67c5JHP-KheTow';
+
+// Initialate map
+var map = new mapboxgl.Map({
+    container: 'map',
+    style: 'mapbox://styles/lotteeymann/cl34nty5g005f14qqb597tftk',
+    center: [5.3827097015367285, 52.122981870451326],
+    zoom: 13
+});
+
+map.addControl(new mapboxgl.NavigationControl());
+
+var popup = new mapboxgl.Popup().setHTML('<h3>You will land here</h3><p>It is a beautiful location. It is right in the middle of a forest. There is a big field that we use for our landing. After our exciting journey to mars, you can relax in a calm and relaxing environment. Outside the forest is also a city where you can easily book a hotel, get something to eat or travel back home. </p><img src="images/landing.png" alt="Italian Trulli" style="width:100%;height:100%;">');
+
+// Adding a marker based on lon lat coordinates
+var marker = new mapboxgl.Marker()
+    .setLngLat([5.3827097015367285, 52.122981870451326])
+    .setPopup(popup)
+    .addTo(map);
+
+map.on('load', function() {
+    map.addSource('places', {
+        'type': 'geojson',
+        'data': {
+            'type': 'FeatureCollection',
+            'features': myLocationsList
+        }
+    });
+
+    // Add a layer showing the places.
+    map.addLayer({
+        'id': 'places',
+        'type': 'symbol',
+        'source': 'places',
+        'layout': {
+            'icon-image': '{icon}-15',
+            'icon-allow-overlap': true
+        }
+    });
+});
+
+// OpenWeather second API
 function getAPIdataWeather() {
 
     // construct request
@@ -20,26 +64,5 @@ function getAPIdataWeather() {
     });
 }
 
-function getAPIdataWeatherMars() {
-
-    // construct request
-    var requestMars = 'https://api.nasa.gov/insight_weather/?api_key=DEMO_KEY&feedtype=json&ver=1.0';
-
-    // get current weather
-    fetch(requestMars)
-
-    // parse response to JSON format
-    .then(function(responseMars) {
-        return responseMars.json();
-    })
-
-    // do something with response
-    .then(function(responseMars) {
-        // show full JSON object
-        console.log(responseMars);
-    });
-}
-
 // init data stream
 getAPIdataWeather();
-getAPIdataWeatherMars();
